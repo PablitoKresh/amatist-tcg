@@ -9,7 +9,7 @@
         </h1>
         <p class="lead text-secondary">El poder está en tus manos</p>
         <p class="mt-4">
-            <a href="#" class="btn btn-primary btn-lg me-2">Ver catálogo</a>
+            <a href="{{ route('catalogo') }}" class="btn btn-primary btn-lg me-2">Ver catálogo</a>
             <a href="#" class="btn btn-outline-primary btn-lg">Registrarse</a>
         </p>
     </section>
