@@ -34,8 +34,28 @@
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="{{ url('/catalogo') }}">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Iniciar sesión</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Registro</a></li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">Registro</a>
+                        </li>
+                    @endguest
+
+                    @auth
+                        <li class="nav-item">
+                            <span class="nav-link">Hola, {{ auth()->user()->name }}</span>
+                        </li>
+
+                        <li class="nav-item">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="nav-link btn btn-link">Cerrar sesión</button>
+                            </form>
+                        </li>
+                    @endauth
                 </ul>
             </div>
         </div>
