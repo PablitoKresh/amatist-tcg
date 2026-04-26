@@ -70,3 +70,20 @@ h1, h2, h3, .navbar-brand {
     height: 2.4rem; /* Altura fija para el título (2 líneas) */
     overflow: hidden;
 }
+
+/* Estilo para el nombre de la marca en el Navbar */
+.navbar-brand {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Opcional: un pequeño efecto de brillo al pasar el ratón por el logo */
+.navbar-brand img {
+    transition: filter 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
