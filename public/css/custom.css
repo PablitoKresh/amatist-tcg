@@ -38,7 +38,35 @@ h1, h2, h3, .navbar-brand {
 }
 
 /* Algún retoque extra que ya puedes adaptar */
+/* public/css/custom.css */
+
+.card-img-top {
+    width: 100%;
+    height: 300px; /* Altura fija para que todas las filas de botones alineen */
+    object-fit: contain; /* IMPORTANTE: Muestra la carta completa sin recortar */
+    background-color: #f1f1f1; /* Fondo gris suave para rellenar los huecos */
+    padding: 15px; /* Espacio para que la carta no toque los bordes de la tarjeta */
+    transition: transform 0.3s ease; /* Para el efecto de zoom */
+}
+
+/* Efecto para que al pasar el ratón parezca que sacas la carta */
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
 .card {
     border: none;
-    box-shadow: 0 2px 6px rgba(107, 33, 168, 0.08);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* Ajuste para los títulos y precios */
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    height: 2.4rem; /* Altura fija para el título (2 líneas) */
+    overflow: hidden;
 }
