@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', config('app.name'))</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo.svg') }}">
 
     {{-- Google Fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,20 +15,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    {{-- CSS propio DESPUÉS de Bootstrap para que tenga prioridad --}}
+    {{-- CSS propio --}}
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
+            <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <img src="{{ asset('img/logo.svg') }}" alt="Logo" width="45" height="45" class="me-2">
+                <span>AMATIST <span class="text-info">TCG</span></span>
+            </a>
+
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Catálogo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/catalogo') }}">Catálogo</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Iniciar sesión</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Registro</a></li>
                 </ul>
@@ -41,11 +47,11 @@
 
     <footer class="bg-dark text-light py-3 mt-auto">
         <div class="container text-center small">
-            © {{ date('Y') }} {{ config('app.name') }} · El poder está en tus manos
+            © {{ date('Y') }} <span style="font-family: 'Cinzel', serif;">{{ config('app.name') }}</span> · El poder está en tus manos
         </div>
     </footer>
 
-    {{-- JS de Bootstrap (bundle incluye Popper) al final del body --}}
+    {{-- JS de Bootstrap --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
