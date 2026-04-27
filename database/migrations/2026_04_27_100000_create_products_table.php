@@ -11,18 +11,20 @@ return new class extends Migration
      *
      * @return void
      */
+    
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('description'); // El que añadimos antes
             $table->decimal('price', 8, 2);
-            $table->string('image')->nullable();
+            $table->string('image');
+            $table->string('category'); // <--- Asegúrate de que este esté aquí
             $table->timestamps();
         });
     }
-
-    /**
+        /**
      * Reverse the migrations.
      *
      * @return void

@@ -21,7 +21,7 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-4 g-4">
-            @foreach($productos->where('category', 'pokemon') as $producto)
+            @foreach($productos->where('category', 'Pokemon') as $producto)
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0">
 
@@ -66,7 +66,7 @@
         </div>
 
         <div class="row row-cols-1 row-cols-md-4 g-4">
-            @foreach($productos->where('category', 'yugioh') as $producto)
+            @foreach($productos->where('category', 'Yugioh') as $producto)
                 <div class="col">
                     <div class="card h-100 shadow-sm border-0">
 
