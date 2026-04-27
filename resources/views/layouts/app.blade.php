@@ -50,6 +50,16 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/mis-pedidos') }}">Mis pedidos</a>
+                        </li>
+
+                        @if(auth()->user()->role === 'admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
+                            </li>
+                        @endif
+
+                        <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button class="nav-link btn btn-link">Cerrar sesión</button>

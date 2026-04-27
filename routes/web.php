@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use Laravel\Fortify\Features;
+use App\Models\Product;
+use App\Http\Controllers\OrderController;
+use App\Models\Order;
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -25,6 +28,22 @@ Route::get('/register', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 Route::get('/catalogo', function () {
-    return view('catalogo');
+    $productos = Product::all();
+    return view('catalogo', compact('productos'));
 })->name('catalogo');
+
+Route::post('/comprar/{id}', [OrderController::class, 'comprar'])
+    ->middleware('auth');
+
+Route::get('/mis-pedidos', function () {
+    $orders = auth()->user()->orders;
+    return view('pedidos', compact('orders'));
+})->middleware('auth');
+
+Route::get('/admin', function () {
+    $orders = Order::with('items.product', 'user')->get();
+    return view('admin', compact('orders'));
+})->middleware('admin');
