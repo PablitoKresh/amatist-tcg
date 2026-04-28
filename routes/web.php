@@ -1,21 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 use Laravel\Fortify\Features;
 use App\Models\Product;
 use App\Http\Controllers\OrderController;
 use App\Models\Order;
+use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/login', function () {
     return view('auth.login');
@@ -47,3 +37,7 @@ Route::get('/admin', function () {
     $orders = Order::with('items.product', 'user')->get();
     return view('admin', compact('orders'));
 })->middleware('admin');
+
+Route::resource('admin/products', ProductController::class)
+    ->names('admin.products')
+    ->middleware('admin');

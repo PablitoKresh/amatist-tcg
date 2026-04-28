@@ -57,6 +57,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
                             </li>
+                            <li>
+                                <a class="nav-link" href="{{ route('admin.products.index') }}">Productos</a>
+                            </li>
                         @endif
 
                         <li class="nav-item">
