@@ -94,7 +94,11 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
-    {
-        //
-    }
+{
+    $product->delete();
+
+    return redirect()
+        ->route('admin.products.index')
+        ->with('success', 'Producto eliminado correctamente.');
+}
 }
