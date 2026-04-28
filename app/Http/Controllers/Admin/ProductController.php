@@ -27,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -37,9 +37,21 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    $datos = $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'price' => 'required|numeric|min:0',
+        'category' => 'required|string',
+        'image' => 'required|string',
+    ]);
+
+    Product::create($datos);
+
+    return redirect()
+        ->route('admin.products.index')
+        ->with('success', 'Producto creado correctamente.');
+}
 
     /**
      * Display the specified resource.
