@@ -72,7 +72,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.edit', ['producto' => $product]);
     }
 
     /**
@@ -84,7 +84,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+    $datos = $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'price' => 'required|numeric|min:0',
+        'category' => 'required|string',
+        'image' => 'required|string',
+    ]);
+
+    $product->update($datos);
+
+    return redirect()
+        ->route('admin.products.index')
+        ->with('success', 'Producto actualizado correctamente.');
     }
 
     /**
