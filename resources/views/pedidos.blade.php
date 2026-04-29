@@ -6,6 +6,16 @@
 <div class="container py-5">
     <h1 class="mb-4">Mis pedidos</h1>
 
+    @php
+        $colors = [
+            'pendiente'  => 'bg-warning text-dark',
+            'preparando' => 'bg-info text-dark',
+            'enviado'    => 'bg-primary',
+            'entregado'  => 'bg-success',
+            'cancelado'  => 'bg-danger',
+        ];
+    @endphp
+
     @foreach($orders as $order)
         <div class="card mb-3 shadow-sm">
             <div class="card-body">
@@ -14,8 +24,8 @@
                 <p class="mb-1"><strong>Total:</strong> {{ $order->total }}€</p>
                 <p class="mb-1">
                     <strong>Estado:</strong> 
-                    <span class="badge bg-warning text-dark">
-                        {{ $order->status }}
+                    <span class="badge {{ $colors[$order->status] ?? 'bg-secondary' }}">
+                        {{ ucfirst($order->status) }}
                     </span>
                 </p>
 

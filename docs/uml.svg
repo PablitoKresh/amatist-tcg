@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1100 590" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Diagrama UML del esquema de base de datos de Amatist TCG</title>
+  <desc id="desc">Modelo de base de datos con cinco tablas (users, profiles, orders, order_items, products) y relaciones 1:1, 1:N y N:M marcadas con sus cardinalidades.</desc>
+
+  <style>
+    .border { fill: white; stroke: #6B21A8; stroke-width: 1.5; }
+    .header { fill: #6B21A8; }
+    .title-tbl { fill: white; font-family: 'Inter', system-ui, sans-serif; font-size: 15px; font-weight: 700; text-anchor: middle; }
+    .field { fill: #1E1B2E; font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 12.5px; }
+    .field-pk { fill: #1E1B2E; font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 700; }
+    .badge { fill: #6B21A8; font-family: 'Inter', system-ui, sans-serif; font-size: 10px; font-weight: 600; text-anchor: end; }
+    .conn { fill: none; stroke: #6B21A8; stroke-width: 2; }
+    .card-bg { fill: white; stroke: #6B21A8; stroke-width: 1; }
+    .card-text { fill: #1E1B2E; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 700; text-anchor: middle; }
+    .legend { fill: #1E1B2E; font-family: 'Inter', system-ui, sans-serif; font-size: 12.5px; }
+    .doc-title { fill: #6B21A8; font-family: 'Inter', system-ui, sans-serif; font-size: 18px; font-weight: 700; }
+    .nm-label { fill: #6B21A8; font-family: 'Inter', system-ui, sans-serif; font-size: 11.5px; font-weight: 700; font-style: italic; text-anchor: middle; }
+  </style>
+
+  <rect width="1100" height="590" fill="white"/>
+
+  <text x="40" y="28" class="doc-title">Esquema UML &#183; Amatist TCG</text>
+
+  <!-- profiles -->
+  <g>
+    <rect class="border" x="40" y="56" width="240" height="130"/>
+    <rect class="header" x="40" y="56" width="240" height="28"/>
+    <text class="title-tbl" x="160" y="76">profiles</text>
+    <text class="field-pk" x="55" y="108">id</text>
+    <text class="badge" x="265" y="108">PK</text>
+    <text class="field" x="55" y="126">user_id</text>
+    <text class="badge" x="265" y="126">FK &#183; UNIQUE</text>
+    <text class="field" x="55" y="144">avatar</text>
+    <text class="field" x="55" y="162">language</text>
+    <text class="field" x="55" y="180">timestamps</text>
+  </g>
+
+  <!-- users -->
+  <g>
+    <rect class="border" x="40" y="226" width="240" height="180"/>
+    <rect class="header" x="40" y="226" width="240" height="28"/>
+    <text class="title-tbl" x="160" y="246">users</text>
+    <text class="field-pk" x="55" y="278">id</text>
+    <text class="badge" x="265" y="278">PK</text>
+    <text class="field" x="55" y="296">name</text>
+    <text class="field" x="55" y="314">email</text>
+    <text class="badge" x="265" y="314">UNIQUE</text>
+    <text class="field" x="55" y="332">password</text>
+    <text class="field" x="55" y="350">role</text>
+    <text class="badge" x="265" y="350">enum(user, admin)</text>
+    <text class="field" x="55" y="368">remember_token</text>
+    <text class="field" x="55" y="386">timestamps</text>
+  </g>
+
+  <!-- orders -->
+  <g>
+    <rect class="border" x="460" y="100" width="260" height="160"/>
+    <rect class="header" x="460" y="100" width="260" height="28"/>
+    <text class="title-tbl" x="590" y="120">orders</text>
+    <text class="field-pk" x="475" y="152">id</text>
+    <text class="badge" x="705" y="152">PK</text>
+    <text class="field" x="475" y="170">user_id</text>
+    <text class="badge" x="705" y="170">FK</text>
+    <text class="field" x="475" y="188">total</text>
+    <text class="field" x="475" y="206">status</text>
+    <text class="badge" x="705" y="206">pendiente, enviado, &#8230;</text>
+    <text class="field" x="475" y="224">timestamps</text>
+  </g>
+
+  <!-- order_items -->
+  <g>
+    <rect class="border" x="460" y="320" width="280" height="170"/>
+    <rect class="header" x="460" y="320" width="280" height="28"/>
+    <text class="title-tbl" x="600" y="340">order_items</text>
+    <text class="field-pk" x="475" y="372">id</text>
+    <text class="badge" x="725" y="372">PK</text>
+    <text class="field" x="475" y="390">order_id</text>
+    <text class="badge" x="725" y="390">FK</text>
+    <text class="field" x="475" y="408">product_id</text>
+    <text class="badge" x="725" y="408">FK</text>
+    <text class="field" x="475" y="426">quantity</text>
+    <text class="field" x="475" y="444">price</text>
+    <text class="badge" x="725" y="444">precio congelado</text>
+    <text class="field" x="475" y="462">timestamps</text>
+  </g>
+
+  <!-- products -->
+  <g>
+    <rect class="border" x="820" y="320" width="240" height="180"/>
+    <rect class="header" x="820" y="320" width="240" height="28"/>
+    <text class="title-tbl" x="940" y="340">products</text>
+    <text class="field-pk" x="835" y="372">id</text>
+    <text class="badge" x="1045" y="372">PK</text>
+    <text class="field" x="835" y="390">name</text>
+    <text class="field" x="835" y="408">description</text>
+    <text class="field" x="835" y="426">price</text>
+    <text class="field" x="835" y="444">image</text>
+    <text class="field" x="835" y="462">category</text>
+    <text class="field" x="835" y="480">timestamps</text>
+  </g>
+
+  <!-- profiles -> users : 1:1 -->
+  <line class="conn" x1="160" y1="186" x2="160" y2="226"/>
+  <rect class="card-bg" x="168" y="190" width="18" height="14" rx="2"/>
+  <text class="card-text" x="177" y="201">1</text>
+  <rect class="card-bg" x="168" y="208" width="18" height="14" rx="2"/>
+  <text class="card-text" x="177" y="219">1</text>
+
+  <!-- users -> orders : 1:N -->
+  <path class="conn" d="M 280 290 H 370 V 180 H 460"/>
+  <rect class="card-bg" x="291" y="280" width="18" height="14" rx="2"/>
+  <text class="card-text" x="300" y="291">1</text>
+  <rect class="card-bg" x="438" y="172" width="22" height="14" rx="2"/>
+  <text class="card-text" x="449" y="183">N</text>
+
+  <!-- orders -> order_items : 1:N -->
+  <path class="conn" d="M 590 260 V 290 H 600 V 320"/>
+  <rect class="card-bg" x="600" y="263" width="18" height="14" rx="2"/>
+  <text class="card-text" x="609" y="274">1</text>
+  <rect class="card-bg" x="608" y="305" width="22" height="14" rx="2"/>
+  <text class="card-text" x="619" y="316">N</text>
+
+  <!-- products -> order_items : 1:N -->
+  <path class="conn" d="M 820 410 H 780 V 405 H 740"/>
+  <rect class="card-bg" x="788" y="395" width="18" height="14" rx="2"/>
+  <text class="card-text" x="797" y="406">1</text>
+  <rect class="card-bg" x="745" y="395" width="22" height="14" rx="2"/>
+  <text class="card-text" x="756" y="406">N</text>
+
+  <!-- N:M aggregated label -->
+  <text class="nm-label" x="600" y="296">N : M (orders &#8596; products v&#237;a order_items)</text>
+
+  <!-- Legend -->
+  <g transform="translate(40, 525)">
+    <text class="legend" x="0" y="0" font-weight="700" fill="#6B21A8">Cardinalidades requeridas (Problema 1):</text>
+    <text class="legend" x="0" y="20">&#8226; 1:1 &#8212; users &#8596; profiles (cada usuario tiene un &#250;nico perfil con su idioma y avatar)</text>
+    <text class="legend" x="0" y="38">&#8226; 1:N &#8212; users &#8594; orders &#183; orders &#8594; order_items &#183; products &#8594; order_items</text>
+    <text class="legend" x="0" y="56">&#8226; N:M &#8212; orders &#8596; products a trav&#233;s de la tabla pivote order_items (con datos extra: quantity y price)</text>
+  </g>
+</svg>

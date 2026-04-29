@@ -28,4 +28,18 @@ class OrderController extends Controller
 
         return back()->with('success', 'Compra realizada');
     }
+
+
+    public function updateStatus(Request $request, Order $order)
+    {
+        $request->validate([
+            'status' => 'required|in:pendiente,preparando,enviado,entregado,cancelado',
+        ]);
+
+        $order->update(['status' => $request->status]);
+
+        return back()->with('success', "Pedido #{$order->id} actualizado a '{$order->status}'");
+    }
+
+    
 }
