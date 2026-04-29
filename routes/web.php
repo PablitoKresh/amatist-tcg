@@ -41,3 +41,7 @@ Route::get('/admin', function () {
 Route::resource('admin/products', ProductController::class)
     ->names('admin.products')
     ->middleware('admin');
+
+Route::patch('/admin/orders/{order}', [OrderController::class, 'updateStatus'])
+    ->middleware('admin')
+    ->name('admin.orders.update');
