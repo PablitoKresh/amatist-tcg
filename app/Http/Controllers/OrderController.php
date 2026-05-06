@@ -8,6 +8,9 @@ use App\Models\Order;
 use App\Models\OrderItem;
 // --- ESTAS SON LAS DOS LÍNEAS NUEVAS QUE HE AÑADIDO ---
 use App\Mail\PedidoPreparando;
+use App\Mail\PedidoEnviado;
+use App\Mail\PedidoEntregado;
+use App\Mail\PedidoCancelado;
 use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
@@ -44,6 +47,21 @@ class OrderController extends Controller
         if ($order->status === 'preparando') {
             // Enviamos el correo al email del usuario dueño del pedido
             Mail::to($order->user->email)->send(new PedidoPreparando($order));
+        }
+
+        if ($order->status === 'enviado') {
+            // Enviamos el correo al email del usuario dueño del pedido
+            Mail::to($order->user->email)->send(new PedidoEnviado($order));
+        }
+
+        if ($order->status === 'entregado') {
+            // Enviamos el correo al email del usuario dueño del pedido
+            Mail::to($order->user->email)->send(new PedidoEntregado($order));
+        }
+
+        if ($order->status === 'cancelado') {
+            // Enviamos el correo al email del usuario dueño del pedido
+            Mail::to($order->user->email)->send(new PedidoCancelado($order));
         }
 
         return back()->with('success', "Pedido #{$order->id} actualizado a '{$order->status}'");
