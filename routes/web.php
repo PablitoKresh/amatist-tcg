@@ -5,6 +5,7 @@ use Laravel\Fortify\Features;
 use App\Models\Product;
 use App\Http\Controllers\OrderController;
 use App\Models\Order;
+use App\Models\Category;
 use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/login', function () {
@@ -21,8 +22,8 @@ Route::get('/', function () {
 
 
 Route::get('/catalogo', function () {
-    $productos = Product::all();
-    return view('catalogo', compact('productos'));
+    $categorias = Category::with('products')->get();
+    return view('catalogo', compact('categorias'));
 })->name('catalogo');
 
 Route::post('/comprar/{id}', [OrderController::class, 'comprar'])
