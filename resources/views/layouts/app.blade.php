@@ -33,14 +33,29 @@
             
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('/catalogo') }}">Catálogo</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/lang/es') }}">ES</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/lang/en') }}">EN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/catalogo') }}">
+                            {{ __('messages.catalog') }}
+                        </a>
+                    </li>
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+                            <a class="nav-link" href="{{ route('login') }}">
+                                {{ __('messages.login') }}
+                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Registro</a>
+                            <a class="nav-link" href="{{ route('register') }}">
+                                {{ __('messages.register') }}
+                            </a>
                         </li>
                     @endguest
 
@@ -50,22 +65,30 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/mis-pedidos') }}">Mis pedidos</a>
+                            <a class="nav-link" href="{{ url('/mis-pedidos') }}">
+                                {{ __('messages.orders') }}
+                            </a>
                         </li>
 
                         @if(auth()->user()->role === 'admin')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
+                                <a class="nav-link" href="{{ url('/admin') }}">
+                                    {{ __('messages.admin') }}
+                                </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="{{ route('admin.products.index') }}">Productos</a>
+                                <a class="nav-link" href="{{ route('admin.products.index') }}">
+                                    {{ __('messages.products') }}
+                                </a>
                             </li>
                         @endif
 
                         <li class="nav-item">
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button class="nav-link btn btn-link">Cerrar sesión</button>
+                                <button class="nav-link btn btn-link">
+                                    {{ __('messages.logout') }}
+                                </button>
                             </form>
                         </li>
                     @endauth

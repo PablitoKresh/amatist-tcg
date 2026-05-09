@@ -46,3 +46,12 @@ Route::resource('admin/products', ProductController::class)
 Route::patch('/admin/orders/{order}', [OrderController::class, 'updateStatus'])
     ->middleware('admin')
     ->name('admin.orders.update');
+
+Route::get('/lang/{locale}', function ($locale) {
+
+    if (in_array($locale, ['es', 'en'])) {
+        session(['locale' => $locale]);
+    }
+
+    return redirect()->back();
+});

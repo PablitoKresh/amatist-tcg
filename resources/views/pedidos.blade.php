@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Mis pedidos')
+@section('title', __('messages.my_orders'))
 
 @section('content')
 <div class="container py-5">
-    <h1 class="mb-4">Mis pedidos</h1>
+    <h1 class="mb-4">{{ __('messages.my_orders') }}</h1>
 
     @php
         $colors = [
@@ -19,22 +19,27 @@
     @foreach($orders as $order)
         <div class="card mb-3 shadow-sm">
             <div class="card-body">
-                <h5 class="card-title">Pedido #{{ $order->id }}</h5>
+                <h5 class="card-title">
+                    {{ __('messages.order') }} #{{ $order->id }}
+                </h5>
                 
-                <p class="mb-1"><strong>Total:</strong> {{ $order->total }}€</p>
                 <p class="mb-1">
-                    <strong>Estado:</strong> 
+                    <strong>{{ __('messages.total') }}:</strong>
+                    {{ $order->total }}€
+                </p>
+                <p class="mb-1">
+                    <strong>{{ __('messages.status') }}:</strong>
                     <span class="badge {{ $colors[$order->status] ?? 'bg-secondary' }}">
-                        {{ ucfirst($order->status) }}
+                        {{ __('messages.' . $order->status) }}
                     </span>
                 </p>
 
                 <p class="text-muted small mb-0">
-                    Fecha: {{ $order->created_at }}
+                    {{ __('messages.date') }}: {{ $order->created_at }}
                 </p>
                 <hr>
 
-                <h6>Productos:</h6>
+                <h6>{{ __('messages.products_label') }}:</h6>
 
                 @foreach($order->items as $item)
                     <p class="mb-1">

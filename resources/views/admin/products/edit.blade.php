@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Editar producto')
+@section('title', __('messages.edit_product'))
 
 @section('content')
 <div class="container py-4">
-    <h1 class="mb-4">Editar producto</h1>
+    <h1 class="mb-4">{{ __('messages.edit_product') }}</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -20,7 +20,9 @@
         @csrf
         @method('PUT')
         <div class="mb-3">
-            <label for="name" class="form-label">Nombre</label>
+            <label for="name" class="form-label">
+                {{ __('messages.name') }}
+            </label>
             <input type="text" 
                    class="form-control @error('name') is-invalid @enderror" 
                    id="name" 
@@ -32,7 +34,9 @@
         </div>
 
         <div class="mb-3">
-            <label for="description" class="form-label">Descripción</label>
+            <label for="description" class="form-label">
+                {{ __('messages.description') }}
+            </label>
             <textarea class="form-control @error('description') is-invalid @enderror" 
                       id="description" 
                       name="description" 
@@ -43,7 +47,9 @@
         </div>
 
         <div class="mb-3">
-            <label for="price" class="form-label">Precio (€)</label>
+            <label for="price" class="form-label">
+                {{ __('messages.price') }} (€)
+            </label>
             <input type="number" 
                    step="0.01" 
                    min="0"
@@ -57,11 +63,15 @@
         </div>
 
         <div class="mb-3">
-            <label for="category" class="form-label">Categoría</label>
+            <label for="category" class="form-label">
+                {{ __('messages.category') }}
+            </label>
             <select class="form-select @error('category') is-invalid @enderror" 
                     id="category" 
                     name="category">
-                <option value="">-- Selecciona --</option>
+                <option value="">
+                    -- {{ __('messages.select') }} --
+                </option>
                 <option value="Pokemon" {{ (old('category' == 'Pokemon' || $producto->category) == 'Pokemon') ? 'selected' : '' }}>Pokémon</option>
                 <option value="Yugioh" {{ (old('category' == 'Yugioh' || $producto->category) == 'Yugioh') ? 'selected' : '' }}>Yu-Gi-Oh</option>
             </select>
@@ -71,22 +81,26 @@
         </div>
 
         <div class="mb-3">
-            <label for="image" class="form-label">Imagen</label>
+            <label for="image" class="form-label">
+                {{ __('messages.image') }}
+            </label>
             <input type="text" 
                    class="form-control @error('image') is-invalid @enderror" 
                    id="image" 
                    name="image" 
                    value="{{ old('image' , $producto->image ) }}"
                    placeholder="charizard.jpg">
-            <small class="text-muted">Nombre del archivo en public/img/</small>
+            <small class="text-muted">
+                {{ __('messages.image_help') }}
+            </small>
             @error('image')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="d-flex gap-2">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="{{ route('admin.products.index') }}" class="btn btn-outline-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-primary">{{ __('messages.save') }}</button>
+            <a href="{{ route('admin.products.index') }}" class="btn btn-outline-secondary">{{ __('messages.cancel') }}</a>
         </div>
     </form>
 </div>
