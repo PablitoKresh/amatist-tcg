@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Catálogo - Amatist TCG')
+@section('title', __('messages.catalog') . ' - Amatist TCG')
 
 @section('content')
 <div class="container py-5">
@@ -11,7 +11,7 @@
     @endif
 
     <h1 class="mb-5 text-center display-5 fw-bold">
-        Catálogo <span class="text-primary">Amatist</span>
+        {{ __('messages.catalog') }} <span class="text-primary">Amatist</span>
     </h1>
 
     @forelse($categorias as $categoria)
@@ -22,7 +22,9 @@
             </div>
 
             @if($categoria->products->isEmpty())
-                <p class="text-muted fst-italic">Aún no hay productos en esta categoría.</p>
+                <p class="text-muted fst-italic">
+                    {{ __('messages.no_products_category') }}
+                </p>
             @else
                 <div class="row row-cols-1 row-cols-md-4 g-4">
                     @foreach($categoria->products as $producto)
@@ -44,7 +46,9 @@
                                         </span>
                                         <form action="/comprar/{{ $producto->id }}" method="POST">
                                             @csrf
-                                            <button class="btn btn-sm btn-primary">Añadir</button>
+                                            <button class="btn btn-sm btn-primary">
+                                                {{ __('messages.buy') }}
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
@@ -56,7 +60,7 @@
         </section>
     @empty
         <div class="alert alert-info text-center">
-            Aún no hay categorías. Pídele a un admin que cree alguna.
+            {{ __('messages.no_categories') }}
         </div>
     @endforelse
 
