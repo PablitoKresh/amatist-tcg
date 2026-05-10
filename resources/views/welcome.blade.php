@@ -8,11 +8,11 @@
 
 @section('content')
     <div class="hero-wrapper position-relative overflow-hidden text-center text-white py-5 mb-5">
-        <video autoplay muted loop playsinline id="hero-video" class="position-absolute w-100 h-100">
+        <video autoplay muted loop playsinline id="hero-video" class="position-absolute w-100 h-100" style="object-fit: cover; top: 0; left: 0; z-index: -1;">
             <source src="{{ asset('video/hero-bg.mp4') }}" type="video/mp4">
         </video>
         
-        <div class="container py-5">
+        <div class="container py-5" style="z-index: 1;">
             <h1 class="hero-title display-3 fw-bold mb-3">
                 Amatist <span class="text-accent">TCG</span>
             </h1>
@@ -52,7 +52,7 @@
                     </video>
                     <div class="card-overlay"></div>
                     <div class="card-content">
-                        <h3>Pokémon TCG</h3>
+                        <h3>{{ __('messages.pokemon_title', ['default' => 'Pokémon TCG']) }}</h3>
                         <p>{{ __('messages.pokemon_desc') }}</p>
                     </div>
                 </a>
@@ -83,7 +83,6 @@
                 const video = card.querySelector('.card-video');
                 
                 card.addEventListener('mouseenter', function() {
-                    console.log("Reproduciendo...");
                     if (video) {
                         video.play().catch(error => {
                             console.warn("Auto-play bloqueado por el navegador:", error);

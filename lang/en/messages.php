@@ -51,11 +51,19 @@ return [
     'entregado' => 'Delivered',
     'cancelado' => 'Cancelled',
 
+    // Welcome Page & Titles
+    'slogan' => 'The power is in your hands',
+    'view_catalog' => 'View catalog',
+    'magic_title' => 'Magic: The Gathering',
+    'magic_desc' => 'Boosters, preconstructed decks, single cards and accessories.',
+    'pokemon_title' => 'Pokémon TCG',
+    'pokemon_desc' => 'Elite Trainer Boxes, boosters and official promos.',
+    'yugioh_title' => 'Yu-Gi-Oh! & more',
+    'yugioh_desc' => 'Structure decks, boosters and collectible rarities.',
+
     // Messages
     'no_products_category' => 'There are no products in this category yet.',
     'no_categories' => 'There are no categories yet. Ask an admin to create one.',
-    'slogan' => 'The power is in your hands',
-    'view_catalog' => 'View catalog',
 
     // Admin
     'admin_panel' => 'Admin Panel',

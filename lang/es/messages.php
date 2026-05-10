@@ -51,11 +51,19 @@ return [
     'entregado' => 'Entregado',
     'cancelado' => 'Cancelado',
 
-    // Mensajes de error/vaciado
-    'no_products_category' => 'Aún no hay productos en esta categoría.',
-    'no_categories' => 'Aún no hay categorías. Pídele a un admin que cree alguna.',
+    // Página de inicio y Títulos (Arregla los errores de la home)
     'slogan' => 'El poder está en tus manos',
     'view_catalog' => 'Ver catálogo',
+    'magic_title' => 'Magic: The Gathering',
+    'magic_desc' => 'Sobres, barajas precon, cartas sueltas y accesorios.',
+    'pokemon_title' => 'Pokémon TCG',
+    'pokemon_desc' => 'Elite Trainer Boxes, sobres y promos oficiales.',
+    'yugioh_title' => 'Yu-Gi-Oh! & más',
+    'yugioh_desc' => 'Mazos estructurales, sobres y rarezas de colección.',
+
+    // Mensajes
+    'no_products_category' => 'Aún no hay productos en esta categoría.',
+    'no_categories' => 'Aún no hay categorías. Pídele a un admin que cree alguna.',
 
     // Administración
     'admin_panel' => 'Panel Admin',
@@ -74,7 +82,7 @@ return [
     'image_help' => 'Nombre del archivo en public/img/',
     'new_product' => 'Nuevo producto',
 
-    // TRADUCCIONES DE CARTAS (Corregidas para que coincidan con el slug)
+    // DESCRIPCIONES DE CARTAS (Slugs Corregidos)
     'charizard_1999_desc' => '1ª Edición Base Set Holo. La joya de cualquier colección.',
     'venusaur_holo_desc' => 'Base Set Rare Holo. El guardián del bosque.',
     'blastoise_stage_2_desc' => 'Carta con potentes cañones de agua. Muy difícil de conseguir.',
