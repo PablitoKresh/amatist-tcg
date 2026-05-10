@@ -7,28 +7,35 @@
 @endpush
 
 @section('content')
-    <div class="hero-wrapper position-relative overflow-hidden text-center text-white py-5 mb-5">
-        <video autoplay muted loop playsinline id="hero-video" class="position-absolute w-100 h-100" style="object-fit: cover; top: 0; left: 0; z-index: -1;">
-            <source src="{{ asset('video/hero-bg.mp4') }}" type="video/mp4">
-        </video>
-        
-        <div class="container py-5" style="z-index: 1;">
-            <h1 class="hero-title display-3 fw-bold mb-3">
-                Amatist <span class="text-accent">TCG</span>
-            </h1>
-            <p class="lead mb-4 fs-4 text-light opacity-75" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
-                {{ __('messages.slogan') }}
-            </p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="{{ route('catalogo') }}" class="btn-glass px-5 py-3 text-decoration-none">
-                    {{ __('messages.view_catalog') }}
-                </a>
-                <a href="{{ route('register') }}" class="btn-outline-glass px-5 py-3 text-white text-decoration-none">
-                    {{ __('messages.register') }}
-                </a>
-            </div>
+    {{-- SECCIÓN HERO --}}
+<div class="hero-wrapper position-relative overflow-hidden text-center text-white py-5 mb-5" style="background: transparent;">
+    {{-- Cambiamos z-index a 0 para que esté sobre el fondo pero bajo el texto --}}
+    <video autoplay muted loop playsinline id="hero-video" class="position-absolute w-100 h-100" 
+           style="object-fit: cover; top: 0; left: 0; z-index: 0;">
+        <source src="{{ asset('video/hero-bg.mp4') }}" type="video/mp4">
+    </video>
+    
+    {{-- Capa de contraste para que el texto resalte --}}
+    <div class="position-absolute w-100 h-100" style="top: 0; left: 0; background: rgba(0,0,0,0.4); z-index: 1;"></div>
+    
+    {{-- El contenido ahora tiene z-index: 2 para estar al frente de todo --}}
+    <div class="container py-5 position-relative" style="z-index: 2;">
+        <h1 class="hero-title display-3 fw-bold mb-3">
+            Amatist <span class="text-accent">TCG</span>
+        </h1>
+        <p class="lead mb-4 fs-4 text-light opacity-75" style="text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
+            {{ __('messages.slogan') }}
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="{{ route('catalogo') }}" class="btn-glass px-5 py-3 text-decoration-none">
+                {{ __('messages.view_catalog') }}
+            </a>
+            <a href="{{ route('register') }}" class="btn-outline-glass px-5 py-3 text-white text-decoration-none">
+                {{ __('messages.register') }}
+            </a>
         </div>
     </div>
+</div>
 
     <div class="container">
         <section class="row row-cols-1 row-cols-md-3 g-4 mt-5">
