@@ -12,7 +12,7 @@
     @if($favorites->isEmpty())
         <div class="text-center py-5">
             <i class="bi bi-heartbreak text-secondary display-1"></i>
-            <p class="text-muted mt-3 fs-4">{{ __('messages.no_favorites') }}</p>
+            <p class="text-white mt-3 fs-4">{{ __('messages.no_favorites') }}</p>
             <a href="{{ route('catalogo') }}" class="btn btn-primary mt-3 px-4 rounded-pill">{{ __('messages.explore_catalog') }}</a>
         </div>
     @else

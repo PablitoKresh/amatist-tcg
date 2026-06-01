@@ -19,6 +19,10 @@
             color: white !important;
             border-radius: 12px;
         }
+        .form-control-amatist option {
+            background: white;
+            color: black;
+        }
         .form-control-amatist:focus {
             background: rgba(255, 255, 255, 0.1);
             border-color: #a855f7;
