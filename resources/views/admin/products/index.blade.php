@@ -45,7 +45,7 @@
                                         {{ $categoria->name }}
                                     </span>
                                 @empty
-                                    <span class="text-muted small fst-italic">Sin categoría</span>
+                                    <span class="text-muted small fst-italic">{{ __('messages.no_category') }}</span>
                                 @endforelse
                             </td>
                             <td class="fw-bold text-dark">
@@ -53,14 +53,14 @@
                             </td>
                             <td>
                                 @if($producto->stock <= 0)
-                                    <span class="badge bg-danger-subtle text-danger border border-danger-subtle">Agotado</span>
+                                    <span class="badge bg-danger-subtle text-danger border border-danger-subtle">{{ __('messages.out_of_stock') }}</span>
                                 @elseif($producto->stock <= 5)
                                     <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle">
-                                        Bajo: {{ $producto->stock }}
+                                        {{ __('messages.low_stock_label', ['stock' => $producto->stock]) }}
                                     </span>
                                 @else
                                     <span class="badge bg-success-subtle text-success border border-success-subtle">
-                                        {{ $producto->stock }} uds.
+                                        {{ __('messages.stock_units', ['stock' => $producto->stock]) }}
                                     </span>
                                 @endif
                             </td>

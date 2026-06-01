@@ -62,7 +62,7 @@ class OrderController extends Controller
             \Log::warning('No se pudo enviar el correo de confirmación: ' . $e->getMessage());
         }
 
-        return back()->with('success', '¡Compra realizada! Te hemos enviado un correo con los detalles.');
+        return back()->with('success', __('messages.purchase_success'));
     }
 
     /**

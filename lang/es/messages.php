@@ -27,6 +27,41 @@ return [
     'password' => 'Contraseña',
     'confirm_password' => 'Confirmar contraseña',
     'enter' => 'Entrar',
+    'low_stock' => '¡Solo quedan :stock!',
+    'out_of_stock' => 'Agotado',
+    'no_stock_btn' => 'Sin Stock',
+    'in_stock' => 'Stock: :stock uds.',
+    'purchase_success' => '¡Compra realizada! Te hemos enviado un correo con los detalles.',
+    'profile_updated' => '¡Perfil actualizado, Duelista!',
+    'no_category' => 'Sin categoría',
+    'low_stock_label' => 'Bajo: :stock',
+    'stock_units' => ':stock uds.',
+
+
+    // Estadísticas Admin
+    'favorites_stats_title' => 'Estadísticas de Favoritos - Admin',
+    'top_favorites' => 'Productos más deseados (Top 10)',
+    'position' => 'Posición',
+    'product_name' => 'Nombre del Producto',
+    'times_favorited' => 'Veces en Favoritos',
+    'stock_status' => 'Estado de Stock',
+    'available' => 'Disponible',
+
+    // Favoritos
+    'my_favorites_title_1' => 'Mis',
+    'my_favorites_title_2' => 'Favoritos',
+    'no_favorites' => 'Aún no tienes cartas favoritas.',
+    'explore_catalog' => 'Explorar Catálogo',
+    'view_in_catalog' => 'Ver en catálogo',
+    'favorites_updated' => 'Lista de favoritos actualizada con éxito.',
+
+    // Perfil
+    'my_profile' => 'Mi Perfil',
+    'profile_my' => 'Mi',
+    'username' => 'Nombre de Usuario',
+    'favorite_tcg_label' => 'Tu TCG Favorito',
+    'update_profile' => 'Actualizar Perfil',
+    'change_photo' => 'Cambiar foto',
 
     // Perfil y Direcciones
     'profile' => 'Perfil',
@@ -85,6 +120,8 @@ return [
     'categories' => 'Categorías',
     'no_categories_available' => 'No hay categorías disponibles',
     'multiselect_help' => 'Mantén Ctrl (o Cmd en Mac) para seleccionar varias.',
+    'ranking_favorites' => 'Ranking Favoritos',
+    'administration' => 'Administración',
 
     // DESCRIPCIONES DE CARTAS
     'charizard_1999_desc' => '1ª Edición Base Set Holo. La joya de cualquier colección.',

@@ -66,15 +66,15 @@
                                     <div class="mb-3">
                                         @if($producto->stock > 5)
                                             <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill">
-                                                Stock: {{ $producto->stock }} uds.
+                                                {{ __('messages.in_stock', ['stock' => $producto->stock]) }}
                                             </span>
                                         @elseif($producto->stock > 0)
                                             <span class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded-pill">
-                                                ¡Solo quedan {{ $producto->stock }}!
+                                                {{ __('messages.low_stock', ['stock' => $producto->stock]) }}
                                             </span>
                                         @else
                                             <span class="badge bg-danger-subtle text-danger border border-danger-subtle rounded-pill">
-                                                Agotado
+                                                {{ __('messages.out_of_stock') }}
                                             </span>
                                         @endif
                                     </div>
@@ -90,7 +90,7 @@
                                                 @if($producto->stock > 0)
                                                     <i class="bi bi-cart-plus me-1"></i> {{ __('messages.buy') }}
                                                 @else
-                                                    Sin Stock
+                                                    {{ __('messages.no_stock_btn') }}
                                                 @endif
                                             </button>
                                         </form>

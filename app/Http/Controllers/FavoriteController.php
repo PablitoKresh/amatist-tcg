@@ -18,7 +18,7 @@ class FavoriteController extends Controller
         // El método toggle hace todo el trabajo sucio por nosotros
         $user->favorites()->toggle($product->id);
 
-        return back()->with('success', 'Lista de favoritos actualizada con éxito.');
+        return back()->with('success', __('messages.favorites_updated'));
     }
 
     /**
