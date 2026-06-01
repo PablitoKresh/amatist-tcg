@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // General
     'catalog' => 'Catalog',
     'orders' => 'My orders',
     'my_orders' => 'My orders',
@@ -18,27 +19,55 @@ return [
     'date' => 'Date',
     'update' => 'Update',
     'buy' => 'Add',
+    'save' => 'Save',
+    'cancel' => 'Cancel',
+    'select' => 'Select',
+    'name' => 'Name',
+    'email' => 'Email',
+    'password' => 'Password',
+    'confirm_password' => 'Confirm Password',
+    'enter' => 'Enter',
+
+    // Profile and Addresses
+    'profile' => 'Profile',
+    'edit_profile' => 'Edit Profile',
+    'change_password' => 'Change Password',
+    'addresses' => 'Shipping Addresses',
+    'add_address' => 'Add New Address',
+    'bio' => 'Biography / Dueling Motto',
+    'favorite_tcg' => 'Favorite TCG',
+    'avatar' => 'Profile Picture',
+
+    // Favorites
+    'favorites' => 'My Favorites',
+    'add_to_favorites' => 'Add to Favorites',
+    'remove_from_favorites' => 'Remove from Favorites',
+    'most_favorited' => 'Most Desired Products',
+
+    // Order Status
     'pendiente' => 'Pending',
     'preparando' => 'Preparing',
     'enviado' => 'Sent',
     'entregado' => 'Delivered',
     'cancelado' => 'Cancelled',
-    'no_products_category' => 'There are no products in this category yet.',
-    'no_categories' => 'There are no categories yet. Ask an admin to create one.',
+
+    // Home Page
     'slogan' => 'The power is in your hands',
     'view_catalog' => 'View catalog',
     'magic_title' => 'Magic: The Gathering',
-    'magic_desc' => 'Boosters, preconstructed decks, single cards and accessories.',
+    'magic_desc' => 'Booster packs, preconstructed decks, singles and accessories.',
+    'pokemon_title' => 'Pokémon TCG',
     'pokemon_desc' => 'Elite Trainer Boxes, boosters and official promos.',
     'yugioh_title' => 'Yu-Gi-Oh! & more',
-    'yugioh_desc' => 'Structure decks, boosters and collectible rarities.',
+    'yugioh_desc' => 'Structure decks, boosters and collection rarities.',
+
+    // Messages
+    'no_products_category' => 'There are no products in this category yet.',
+    'no_categories' => 'There are no categories yet. Ask an admin to create one.',
+
+    // Admin
     'admin_panel' => 'Admin Panel',
-    'name' => 'Name',
-    'password' => 'Password',
-    'confirm_password' => 'Confirm password',
-    'email' => 'Email',
-    'enter' => 'Login',
-    'product_management' => 'Product management',
+    'product_management' => 'Product Management',
     'add_product' => 'Add new product',
     'image' => 'Image',
     'category' => 'Category',
@@ -50,19 +79,24 @@ return [
     'confirm_delete_product' => 'Are you sure you want to delete this product?',
     'edit_product' => 'Edit product',
     'description' => 'Description',
-    'select' => 'Select',
-    'image_help' => 'File name inside public/img/',
-    'save' => 'Save',
-    'cancel' => 'Cancel',
+    'image_help' => 'File name in public/img/',
     'new_product' => 'New product',
     'stock' => 'Stock',
     'categories' => 'Categories',
     'no_categories_available' => 'No categories available',
     'multiselect_help' => 'Hold Ctrl (or Cmd on Mac) to select multiple.',
-    'charizard_1999_desc' => '1st Edition Base Set Holo. The crown jewel of any collection.',
-    'venusaur_holo_desc' => 'Base Set Rare Holo. The guardian of the forest.',
-    'blastoise_stage_2_desc' => 'Card with powerful water cannons. Very hard to obtain.',
+
+    // CARD DESCRIPTIONS
+    'charizard_1999_desc' => '1st Edition Base Set Holo. The jewel of any collection.',
+    'venusaur_holo_desc' => 'Base Set Rare Holo. The forest guardian.',
+    'blastoise_stage_2_desc' => 'Powerful water cannons. Very hard to find.',
     'alakazam_holo_desc' => 'Legendary psychic power from the original set.',
-    'blue-eyes_white_dragon_desc' => 'The legendary dragon of Kaiba. A destructive force.',
+    'blue_eyes_white_dragon_desc' => 'Kaiba\'s legendary white dragon. A destructive force.',
     'dark_magician_desc' => 'The ultimate wizard in terms of attack and defense.',
+    'exodia_the_forbidden_one_desc' => 'Automatic victory if you gather all five pieces in your hand.',
+    'red_eyes_black_dragon_desc' => 'A fierce dragon with a lethal attack.',
+    'black_lotus_desc' => 'The most iconic card. Adds three mana of any color for no cost.',
+    'ancestral_recall_desc' => 'Classic Power Nine. Draw three cards for only one blue mana.',
+    'mox_sapphire_desc' => 'Legendary artifact that grants extra blue mana each turn.',
+    'time_walk_desc' => 'Manipulate time to take an extra turn after this one.',
 ];
