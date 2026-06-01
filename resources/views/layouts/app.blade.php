@@ -70,13 +70,13 @@
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark shadow" aria-labelledby="userDropdown">
                                 <li>
                                     <a class="dropdown-item" href="{{ route('profile.edit') }}">
-                                        <i class="bi bi-person-gear me-2"></i>Mi Perfil
+                                        <i class="bi bi-person-gear me-2"></i>{{ __('messages.my_profile') }}
                                     </a>
                                 </li>
                                 {{-- NUEVO: Mis Favoritos --}}
                                 <li>
                                     <a class="dropdown-item" href="{{ route('favorites.index') }}">
-                                        <i class="bi bi-heart-fill me-2 text-danger"></i>Mis Favoritos
+                                        <i class="bi bi-heart-fill me-2 text-danger"></i>{{ __('messages.favorites') }}
                                     </a>
                                 </li>
                                 <li>
@@ -87,7 +87,7 @@
 
                                 @if(auth()->user()->role === 'admin')
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><h6 class="dropdown-header text-info">Administración</h6></li>
+                                    <li><h6 class="dropdown-header text-info">{{ __('messages.administration') }}</h6></li>
                                     <li>
                                         <a class="dropdown-item" href="{{ url('/admin') }}">
                                             <i class="bi bi-shield-lock me-2"></i>{{ __('messages.admin') }}
@@ -101,7 +101,7 @@
                                     {{-- NUEVO: Ranking de Favoritos para Admin --}}
                                     <li>
                                         <a class="dropdown-item" href="{{ route('admin.favorites.stats') }}">
-                                            <i class="bi bi-graph-up-arrow me-2 text-warning"></i>Ranking Favoritos
+                                            <i class="bi bi-graph-up-arrow me-2 text-warning"></i>{{ __('messages.ranking_favorites') }}
                                         </a>
                                     </li>
                                 @endif
@@ -133,7 +133,7 @@
                 <img src="{{ asset('img/logo.svg') }}" alt="Logo" width="30" height="30" class="opacity-75">
             </div>
             <div class="small opacity-75">
-                © {{ date('Y') }} <span style="font-family: 'Cinzel', serif;">{{ config('app.name') }}</span> · El poder está en tus manos
+                © {{ date('Y') }} <span style="font-family: 'Cinzel', serif;">{{ config('app.name') }}</span> · {{ __('messages.slogan') }}
             </div>
         </div>
     </footer>

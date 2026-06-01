@@ -30,9 +30,11 @@
             <a href="{{ route('catalogo') }}" class="btn-glass px-5 py-3 text-decoration-none">
                 {{ __('messages.view_catalog') }}
             </a>
-            <a href="{{ route('register') }}" class="btn-outline-glass px-5 py-3 text-white text-decoration-none">
-                {{ __('messages.register') }}
-            </a>
+            @guest
+                <a href="{{ route('register') }}" class="btn-outline-glass px-5 py-3 text-white text-decoration-none">
+                    {{ __('messages.register') }}
+                </a>
+            @endguest
         </div>
     </div>
 </div>

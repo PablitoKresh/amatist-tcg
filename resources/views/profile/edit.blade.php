@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Mi Perfil - Amatist TCG')
+@section('title', __('messages.my_profile') . ' - Amatist TCG')
 
 @push('styles')
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
@@ -18,6 +18,10 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: white !important;
             border-radius: 12px;
+        }
+        .form-control-amatist option {
+            background: white;
+            color: black;
         }
         .form-control-amatist:focus {
             background: rgba(255, 255, 255, 0.1);
@@ -39,7 +43,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="profile-card shadow-lg">
-                <h2 class="hero-title text-center mb-5">Mi <span class="text-accent">Perfil</span></h2>
+                <h2 class="hero-title text-center mb-5">{{ __('messages.profile_my') }} <span class="text-accent">{{ __('messages.profile') }}</span></h2>
 
                 @if(session('success'))
                     <div class="alert alert-success bg-success text-white border-0">{{ session('success') }}</div>
@@ -54,19 +58,19 @@
                             <img src="{{ $user->avatar ? asset('img/avatars/'.$user->avatar) : asset('img/default-avatar.png') }}" 
                                  class="rounded-circle avatar-preview mb-3" id="preview">
                             <label class="btn btn-outline-light btn-sm w-100">
-                                Cambiar foto
+                                {{ __('messages.change_photo') }}
                                 <input type="file" name="avatar" hidden onchange="previewImage(event)">
                             </label>
                         </div>
 
                         <div class="col-md-8">
                             <div class="mb-3">
-                                <label class="form-label opacity-75">Nombre de Usuario</label>
+                                <label class="form-label opacity-75">{{ __('messages.username') }}</label>
                                 <input type="text" name="name" class="form-control form-control-amatist" value="{{ old('name', $user->name) }}">
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label opacity-75">Tu TCG Favorito</label>
+                                <label class="form-label opacity-75">{{ __('messages.favorite_tcg_label') }}</label>
                                 <select name="favorite_tcg" class="form-select form-control-amatist">
                                     <option value="Magic" {{ $user->favorite_tcg == 'Magic' ? 'selected' : '' }}>Magic: The Gathering</option>
                                     <option value="Pokemon" {{ $user->favorite_tcg == 'Pokemon' ? 'selected' : '' }}>Pokémon TCG</option>
@@ -75,11 +79,11 @@
                             </div>
 
                             <div class="mb-4">
-                                <label class="form-label opacity-75">Biografía / Lema de duelo</label>
+                                <label class="form-label opacity-75">{{ __('messages.bio') }}</label>
                                 <textarea name="bio" class="form-control form-control-amatist" rows="3">{{ old('bio', $user->bio) }}</textarea>
                             </div>
 
-                            <button type="submit" class="btn-glass w-100 py-3">Actualizar Perfil</button>
+                            <button type="submit" class="btn-glass w-100 py-3">{{ __('messages.update_profile') }}</button>
                         </div>
                     </div>
                 </form>

@@ -27,6 +27,40 @@ return [
     'password' => 'Password',
     'confirm_password' => 'Confirm Password',
     'enter' => 'Enter',
+    'low_stock' => 'Only :stock left!',
+    'out_of_stock' => 'Out of stock',
+    'no_stock_btn' => 'No Stock',
+    'in_stock' => 'Stock: :stock units',
+    'purchase_success' => 'Purchase completed! We have sent you an email with the details.',
+    'profile_updated' => 'Profile updated, Duelist!',
+    'no_category' => 'No category',
+    'low_stock_label' => 'Low: :stock',
+    'stock_units' => ':stock units',
+
+    // Statistics Admin
+    'favorites_stats_title' => 'Favorites Statistics - Admin',
+    'top_favorites' => 'Most desired products (Top 10)',
+    'position' => 'Position',
+    'product_name' => 'Product Name',
+    'times_favorited' => 'Times Favorited',
+    'stock_status' => 'Stock Status',
+    'available' => 'Available',
+
+    // Favorites
+    'my_favorites_title_1' => 'My',
+    'my_favorites_title_2' => 'Favorites',
+    'no_favorites' => 'You have no favorite cards yet.',
+    'explore_catalog' => 'Explore Catalog',
+    'view_in_catalog' => 'View in catalog',
+    'favorites_updated' => 'Favorites list updated successfully.',
+
+    // Profile
+    'my_profile' => 'My Profile',
+    'profile_my' => 'My',
+    'username' => 'Username',
+    'favorite_tcg_label' => 'Your Favorite TCG',
+    'update_profile' => 'Update Profile',
+    'change_photo' => 'Change photo',
 
     // Profile and Addresses
     'profile' => 'Profile',
@@ -85,6 +119,8 @@ return [
     'categories' => 'Categories',
     'no_categories_available' => 'No categories available',
     'multiselect_help' => 'Hold Ctrl (or Cmd on Mac) to select multiple.',
+    'ranking_favorites' => 'Favorites Ranking',
+    'administration' => 'Administration',
 
     // CARD DESCRIPTIONS
     'charizard_1999_desc' => '1st Edition Base Set Holo. The jewel of any collection.',
