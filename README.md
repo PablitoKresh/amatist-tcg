@@ -1,64 +1,82 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 🃏 Amatist TCG
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Tienda online de cartas coleccionables (Magic, Pokémon, Yu-Gi-Oh!) desarrollada con **Laravel**.
+Proyecto en equipo para la asignatura *Tecnologías Avanzadas de Desarrollo* (Grado en Ingeniería Informática en Sistemas de Información, Universidad Pablo de Olavide, curso 2025/2026).
 
-## About Laravel
+👉 **Demo:** [amatist-tcg-demo.onrender.com](https://amatist-tcg-demo.onrender.com)
+(servidor gratuito: si lleva un rato sin visitas, la primera carga tarda unos segundos; las cuentas de prueba aparecen en el login)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Funcionalidades
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Clientes**
+- Registro, inicio de sesión y perfil de usuario (con avatar), gestionados con Laravel Fortify.
+- Catálogo de productos por categorías y lista de favoritos.
+- Compra de productos y consulta de pedidos en *Mis pedidos*.
+- Correo electrónico en cada cambio de estado del pedido: confirmado, preparando, enviado, entregado o cancelado.
 
-## Learning Laravel
+**Administración**
+- Panel protegido por roles mediante middleware.
+- Gestión de productos (incluido stock) y de pedidos, con cambio de estado.
+- Estadísticas de productos favoritos.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**General**
+- Interfaz en español e inglés.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🗄️ Base de datos
 
-## Laravel Sponsors
+Modelo relacional en MySQL construido con migraciones y *seeders*:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- `users` (con rol y campos de perfil)
+- `products`, `category` y la tabla pivote `category_product` (relación N:M)
+- `orders` y `order_items`
+- `product_user_favorites` (relación N:M entre usuarios y productos)
 
-### Premium Partners
+El diagrama UML está en [`docs/uml.svg`](docs/uml.svg) y la memoria del proyecto en [`docs/memoria.docx`](docs/memoria.docx).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## 🛠️ Tecnologías
 
-## Contributing
+- PHP 8 · Laravel 9 · Laravel Fortify
+- MySQL
+- Bootstrap 5
+- MailHog (correo en local)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🚀 Puesta en marcha
 
-## Code of Conduct
+```bash
+git clone https://github.com/PablitoKresh/amatist-tcg.git
+cd amatist-tcg
+composer install
+cp .env.example .env
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Configura la base de datos en `.env` (`DB_DATABASE=amatist_tcg`, usuario y contraseña) y créala vacía:
 
-## Security Vulnerabilities
+```sql
+CREATE DATABASE amatist_tcg CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Después:
 
-## License
+```bash
+php artisan migrate --seed
+php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+La aplicación queda en `http://127.0.0.1:8000`.
+
+**Usuario administrador:** registra un usuario y cambia su rol en la base de datos:
+
+```sql
+UPDATE users SET role = 'admin' WHERE email = 'tu@email.com';
+```
+
+## 👥 Equipo
+
+- Pablo Jiménez Bertolet — [@PablitoKresh](https://github.com/PablitoKresh)
+- Antonio Peralias Alfonso — [@antoniop3011](https://github.com/antoniop3011)
+- Jairo Rodríguez Hernández — [@Jairodher](https://github.com/Jairodher)
+
+La documentación original de la entrega está en [`README.txt`](README.txt).
