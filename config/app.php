@@ -43,6 +43,9 @@ return [
 
     'debug' => (bool) env('APP_DEBUG', false),
 
+    // Demo pública: muestra las cuentas de prueba en el login
+    'demo' => (bool) env('DEMO_MODE', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application URL

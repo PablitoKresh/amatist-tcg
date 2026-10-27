@@ -4,6 +4,17 @@
 <div class="container">
     <h2>{{ __('messages.login') }}</h2>
 
+    @if (config('app.demo'))
+        <div class="alert alert-info">
+            <strong>Demo:</strong> puedes entrar con estas cuentas de prueba.
+            Los datos se reinician cada vez que se reinicia el servidor.
+            <ul class="mb-0 mt-2">
+                <li>Admin: <code>admin@amatist.test</code> / <code>admin123</code></li>
+                <li>Cliente: <code>pepe@pepe.com</code> / <code>user123</code></li>
+            </ul>
+        </div>
+    @endif
+
     <form method="POST" action="/login">
         @csrf
 

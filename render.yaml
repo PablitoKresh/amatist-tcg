@@ -1,0 +1,28 @@
+# Blueprint de Render para la demo de Amatist TCG (rama "demo")
+services:
+  - type: web
+    name: amatist-tcg-demo
+    runtime: docker
+    plan: free
+    branch: demo
+    envVars:
+      - key: APP_NAME
+        value: Amatist TCG
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: DEMO_MODE
+        value: "true"
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: /var/www/html/database/demo.sqlite
+      - key: MAIL_MAILER
+        value: log
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: SESSION_DRIVER
+        value: file
+      - key: CACHE_DRIVER
+        value: file
